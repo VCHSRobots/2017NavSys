@@ -6,9 +6,10 @@
 
 import threading
 
-xloc = 0
-yloc = 0
-fmsefile = 0
+xloc = 0.0          #  X location in inches
+yloc = 0.0          #  Y location in inches
+fmsefile = 0        #  file handle for the mouse device
+msescale = 1000.0   #  pixels per inch
 
 def sumMovement(x, y):
     global xloc, yloc
@@ -16,8 +17,8 @@ def sumMovement(x, y):
         x = x - 256
     if y >= 128:
         y = y - 256
-    xloc += x
-    yloc += y
+    xloc += float(x) / msescale
+    yloc += float(y) / msescale
 
 def readMsePosition():
     global fmsefile, xloc, yloc

@@ -8,10 +8,10 @@ import mousereader
 import time
 
 def run():
-    mousereader.initMseTrack()
+    mousereader.initMouseTrack()
     while True:
         x, y = mousereader.getMousePosition()
-        print("%08dx %08dy" % (x, y))
+        print("%8.3f %8.3f" % (x, y))
         time.sleep(1)
 
 
