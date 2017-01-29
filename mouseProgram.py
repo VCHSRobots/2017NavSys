@@ -11,8 +11,8 @@ yf0 = 0.0
 xf1 = 0.0
 yf1 = 0.0
 
-host = '10.44.15.37'
-port = 5818
+host = '10.44.15.35'
+port = 5826
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ("Socket created")
@@ -34,7 +34,7 @@ while 1:
 	data = conn.recv(1024)
 	theta = float(data)
 	xm1, ym1 = mousereader.getMousePosition()
-	print ("Recieved data from client:" + str(theta))
+	#print ("Recieved data from client:" + str(theta))
 	#if not data: break
 	#xm1 = 5.0
 	#ym1 = 0.0
