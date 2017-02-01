@@ -9,9 +9,11 @@ import threading
 import time
 
 def mouse_program():
+	threadMessage("Mouse Program called.")
 	# ....
 
 def target_program():
+	threadMessage("Target Program called.")
 	# ....
 
 def threadMessage(message):
@@ -44,7 +46,7 @@ server_manager.bind((host, port))
 threadMessage("Server manager socket created")
 
 while 1:	
-	server_manager.listen(0)
+	server_manager.listen(25)
 	conn, addr = server_manager.accept()
 	new_client = ClientManager(conn, addr)
 	new_client.start()
