@@ -8,6 +8,12 @@ import socket
 import threading
 import time
 
+def echo(conn):
+	string = conn.recv(1024)
+	conn.send(string)
+	threadMessage(string)
+
+
 def mouse_program():
 	threadMessage("Mouse Program called.")
 	# ....
@@ -18,7 +24,7 @@ def target_program():
 
 def threadMessage(message):
 	#prints "THREAD_NAME: message"
-	print(threading.current_thread().name + ": " + message)
+	print(threading.current_thread().name + ": " + str(message))
 
 class ClientManager(threading.Thread):
 	
@@ -29,6 +35,8 @@ class ClientManager(threading.Thread):
 
 	def run(self):
 		threadMessage("New thread made for Client!")
+		while 1:
+			echo(self.conn)
 		# read string from client
 		# if sting == "MouseProgram":
 			# mouse_program()
