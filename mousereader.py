@@ -3,7 +3,6 @@
 #
 # 01/27/17 DLB Created
 # -------------------------------------------------------
-
 import threading
 
 xloc = 0.0          #  X location in inches
@@ -48,4 +47,4 @@ def initMouseTrack():
 def getMousePosition():
     global xloc, yloc
     return xloc, yloc
-
+   
